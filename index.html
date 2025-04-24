@@ -7,7 +7,9 @@
   <meta name="description" content="Transform your business with AI, automation, and secure cloud infrastructure. Kraftech is the elite MSP built for modern business.">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Modal & form styles -->
+  <link rel="stylesheet" href="assets/css/form.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   
@@ -23,14 +25,14 @@
   <meta property="og:url" content="https://business.kraftech.co/">
   <meta property="og:title" content="Kraftech | Elite IT Automation for Business">
   <meta property="og:description" content="Transform your business with AI, automation, and secure cloud infrastructure.">
-  <meta property="og:image" content="https://business.kraftech.co/assets/preview.png">
+  <meta property="og:image" content="https://business.kraftech.co/assets/images/preview.png">
 
   <!-- X -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://business.kraftech.co/">
   <meta property="twitter:title" content="Kraftech | Elite IT Automation for Business">
   <meta property="twitter:description" content="Transform your business with AI, automation, and secure cloud infrastructure.">
-  <meta property="twitter:image" content="https://business.kraftech.co/assets/preview.png">
+  <meta property="twitter:image" content="https://business.kraftech.co/assets/images/preview.png">
 
 <!-- Favicon (Optional) -->
 <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -118,9 +120,36 @@
     </div>
   </section>
 
-  <div class="sticky-cta">
+  <!-- <div class="sticky-cta">
     <a href="#contact" class="cta">Book a Discovery Call</a>
+  </div> -->
+
+  <!-- Sticky CTA Button -->
+<button id="stickyCta" class="sticky-cta">Start Your Solution</button>
+
+<!-- Modal -->
+<div id="contactModal" class="kraftech-modal hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Let's Build Smarter IT</h2>
+    <form id="leadForm" method="POST" action="#">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="company" placeholder="Company Name" />
+      <select name="interest">
+        <option value="">What are you looking for?</option>
+        <option value="automation">AI & Automation</option>
+        <option value="m365">Modern Workplace</option>
+        <option value="networking">Smarter Networks</option>
+        <option value="cloud">Cloud Strategy</option>
+        <option value="cto">Fractional CTO</option>
+      </select>
+      <textarea name="message" placeholder="Describe your needs..." required></textarea>
+      <input type="text" name="_gotcha" style="display:none" />
+      <button type="submit">Send</button>
+    </form>
   </div>
+</div>
 
   <footer>
     <div class="container">
@@ -322,12 +351,13 @@
     </div>
   </div>
         
-  <script src="script.js"></script>
+  <script src="assets/js/script.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/modal.js"></script>
 
 </body>
 </html>

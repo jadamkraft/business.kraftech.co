@@ -116,28 +116,6 @@
     font-size: 0.9rem;
   }
 
-  .sticky-cta {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-  }
-  
-  .sticky-cta .cta {
-    background: #6366f1;
-    color: white;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: background 0.3s ease;
-  }
-  
-  .sticky-cta .cta:hover {
-    background: #4338ca;
-  }
-
   .card i {
     margin-bottom: 1rem;
     color: #6366f1;
