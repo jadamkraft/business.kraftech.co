@@ -130,4 +130,14 @@
   .sticky-cta .cta:hover {
     background: #4338ca;
   }
-  
+
+  .card i {
+    margin-bottom: 1rem;
+    color: #6366f1;
+  }
+
+  .difference li i {
+    margin-right: 0.5rem;
+    color: #6366f1;
+  }
+      
