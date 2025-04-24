@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- AOS Scroll Animation -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
 </head>
 <body>
   <header class="hero">
@@ -19,27 +22,27 @@
     </div>
   </header>
 
-  <section class="services">
+  <section class="services" data-aos="fade-up">
     <div class="container">
       <h2>What We Do Best</h2>
       <div class="grid">
-        <div class="card">💡 AI Workflows & Automation</div>
-        <div class="card">🧰 Microsoft 365 Modern Workplace</div>
-        <div class="card">🔐 Security Hardening & Compliance</div>
-        <div class="card">🌐 Smarter Networks & Cloud</div>
-        <div class="card">🧠 Fractional CTO Services</div>
+        <div class="card" data-aos="zoom-in">💡 AI Workflows & Automation</div>
+        <div class="card" data-aos="zoom-in">🧰 Microsoft 365 Modern Workplace</div>
+        <div class="card" data-aos="zoom-in">🔐 Security Hardening & Compliance</div>
+        <div class="card" data-aos="zoom-in">🌐 Smarter Networks & Cloud</div>
+        <div class="card" data-aos="zoom-in">🧠 Fractional CTO Services</div>
       </div>
     </div>
   </section>
 
-  <section class="impact">
+  <section class="impact" data-aos="fade-up">
     <div class="container">
       <h2>Real Impact</h2>
       <p>We’ve helped businesses in law, retail, and hospitality reclaim their time with automation and secure infrastructure.</p>
     </div>
   </section>
 
-  <section class="difference">
+  <section class="difference" data-aos="fade-up">
     <div class="container">
       <h2>Why Kraftech</h2>
       <ul>
@@ -51,7 +54,7 @@
     </div>
   </section>
 
-  <section class="cta-final" id="contact">
+  <section class="cta-final" id="contact" data-aos="fade-up">
     <div class="container">
       <h2>Let’s Talk</h2>
       <p>Ready to streamline your IT and future-proof your business?</p>
@@ -66,5 +69,10 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
 </body>
 </html>
