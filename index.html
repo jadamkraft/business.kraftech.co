@@ -132,10 +132,13 @@
   <div class="modal-content">
     <span class="close-button">&times;</span>
     <h2>Let's Build Smarter IT</h2>
-    <form id="leadForm" method="POST" action="#">
+    <form id="leadForm" method="POST" action="https://formspree.io/f/xovdvvnd">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Email" required />
       <input type="text" name="company" placeholder="Company Name" />
+      <input type="text" name="_gotcha" style="display:none" />
+      <input type="hidden" name="_subject" value="New Lead from business.kraftech.co" />
+      <input type="hidden" name="_redirect" value="https://business.kraftech.co/thank-you.html" />
       <select name="interest">
         <option value="">What are you looking for?</option>
         <option value="automation">AI & Automation</option>
