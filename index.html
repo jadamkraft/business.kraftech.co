@@ -10,20 +10,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1>Kraftech Consulting</h1>
-      <p class="tagline">AI & workflow architecture for modern teams</p>
-      <p>I design automation systems that free your team to focus on what matters.</p>
-      <a href="mailto:consult@kraftech.co" class="cta">Book a Consultation</a>
-      <a href="blog.html" class="secondary-cta">Explore Insights</a>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#watch">Watch</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header class="hero" id="home">
+    <video class="hero-bg" autoplay muted loop playsinline>
+      <source src="assets/images/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <h1>AI Workflows. Automated Success.</h1>
+      <p class="subheadline">We don't just talk about automation. We run on it.</p>
+      <a class="cta-button" href="#video-series">Watch How We Do It</a>
     </div>
   </header>
 
-  <section class="about">
+  <section id="about" class="about">
     <div class="container">
       <h2>Build Smarter Systems</h2>
       <p>From strategy to implementation, I help businesses use AI to optimize processes and unlock new value. Need inspiration? Visit <a href="https://jadamkraft.com">jadamkraft.com</a> for my creative archive.</p>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="container">
+      <blockquote>“Kraftech helped us scale our IT workflows — fast.” – <span class="client">[Client Name, Placeholder Co.]</span></blockquote>
+    </div>
+  </section>
+
+  <section id="video-series" class="video-series">
+    <div class="container">
+      <h2>Video Series Placeholder</h2>
+      <p>Coming soon.</p>
     </div>
   </section>
 
@@ -33,6 +57,21 @@
     </div>
   </footer>
 
+  <div class="sticky-footer" id="contact">
+    <a id="stickyCta" href="#video-series">⚡ Get Our Automation Stack – Watch the Video Series</a>
+  </div>
+
   <script src="scripts/update-homepage.js" defer></script>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
+      });
+    }
+  </script>
 </body>
 </html>
