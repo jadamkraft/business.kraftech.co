@@ -10,10 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="/#home">Home</a></li>
+      <li><a href="/#watch">Watch</a></li>
+      <li><a href="/#about">About</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
   <header class="page-header">
     <div class="container">
       <h1>kraftech.co | Gen X Tech</h1>
-      <p class="post-date">Aug 14, 2025 • Tags: automation, ai</p>
+      <p class="post-date">Aug 15, 2025 • Tags: automation, ai</p>
     </div>
   </header>
 
@@ -31,5 +40,16 @@
       <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
     </div>
   </footer>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
+      });
+    }
+  </script>
 </body>
 </html>

@@ -7,6 +7,7 @@ const sanitizeHtml = require('sanitize-html');
 const root = path.join(__dirname, '..');
 const blogDir = path.join(root, 'content', 'blog');
 const blogListPage = path.join(root, 'blog.html');
+const indexPage = path.join(root, 'index.html');
 const templatePath = path.join(root, 'templates', 'post-template.html');
 
 const md = new MarkdownIt({
@@ -46,7 +47,8 @@ function slugify(title) {
 
 if (!fs.existsSync(blogDir)) fs.mkdirSync(blogDir, { recursive: true });
 if (!fs.existsSync(templatePath)) throw new Error('Missing templates/post-template.html');
-if (!fs.existsSync(blogListPage)) {
+const hadBlogList = fs.existsSync(blogListPage);
+if (!hadBlogList) {
   console.warn('blog.html not found, creating a minimal placeholder.');
   const minimal = `<!DOCTYPE html>
 <html lang="en">
@@ -109,7 +111,9 @@ for (const file of files) {
     title: data.title,
     date: data.date,
     featured: !!data.featured,
-    file: outFile
+    file: outFile,
+    summary: summaryText,
+    video: data.video
   });
 }
 
@@ -129,5 +133,18 @@ const listItems = posts.map(p => {
 let listHtml = fs.readFileSync(blogListPage, 'utf8');
 listHtml = listHtml.replace(/<ul class="post-list">[\s\S]*?<\/ul>/, `<ul class="post-list">\n${listItems}\n    </ul>`);
 fs.writeFileSync(blogListPage, listHtml, 'utf8');
+
+if (fs.existsSync(indexPage)) {
+  const featuredPost = posts.find(p => p.featured && p.video && /^https:\/\/iframe\.videodelivery\.net\//.test(p.video));
+  if (featuredPost) {
+    let indexHtml = fs.readFileSync(indexPage, 'utf8');
+    const summaryHtml = featuredPost.summary ? `      <p>${featuredPost.summary}</p>\n` : '';
+    const seeMore = hadBlogList ? `      <p style="font-size:0.9rem;"><a href="/blog" rel="noopener noreferrer">See more case studies &rarr;</a></p>\n` : '';
+    const videoEmbed = `      <div class="video-wrapper" style="position:relative;padding-top:56.25%;">\n        <iframe src="${featuredPost.video}" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>\n      </div>\n`;
+    const replacement = `    <div class="container">\n      <h2>${featuredPost.title}</h2>\n${videoEmbed}${summaryHtml}${seeMore}    </div>`;
+    indexHtml = indexHtml.replace(/<section id="video-series" class="video-series">[\s\S]*?<\/section>/, `<section id="video-series" class="video-series">\n${replacement}\n  </section>`);
+    fs.writeFileSync(indexPage, indexHtml, 'utf8');
+  }
+}
 
 console.log(`Built ${posts.length} post(s) and updated blog.html`);
