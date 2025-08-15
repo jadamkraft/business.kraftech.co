@@ -26,6 +26,7 @@ const sanitize = (html) =>
       '*': ['id', 'class']
     },
     allowedSchemes: ['http', 'https', 'mailto'],
+    allowedIframeHostnames: ['iframe.videodelivery.net'],
     transformTags: {
       a: (tagName, attribs) => ({
         tagName: 'a',
@@ -45,7 +46,25 @@ function slugify(title) {
 
 if (!fs.existsSync(blogDir)) fs.mkdirSync(blogDir, { recursive: true });
 if (!fs.existsSync(templatePath)) throw new Error('Missing templates/post-template.html');
-if (!fs.existsSync(blogListPage)) throw new Error('Missing blog.html list page');
+if (!fs.existsSync(blogListPage)) {
+  console.warn('blog.html not found, creating a minimal placeholder.');
+  const minimal = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Kraftech Consulting</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h1>Blog</h1>
+  <main class="container">
+    <ul class="post-list"></ul>
+  </main>
+</body>
+</html>`;
+  fs.writeFileSync(blogListPage, minimal, 'utf8');
+}
 
 const template = fs.readFileSync(templatePath, 'utf8');
 
