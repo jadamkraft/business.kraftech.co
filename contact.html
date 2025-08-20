@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Kraftech Consulting</title>
+  <meta name="description" content="Start your automation opportunity review.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <main class="container">
+    <section id="form" class="contact-form">
+      <h1>Start Your Automation Opportunity Review</h1>
+      <form action="https://formspree.io/f/xovlopqq" method="POST">
+        <input type="hidden" name="_redirect" value="/thank-you.html">
+        <div style="position:absolute; left:-5000px;">
+          <label for="website2">Website</label>
+          <input type="text" id="website2" name="website2" tabindex="-1">
+        </div>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Business Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+        <div class="form-group">
+          <label for="website">Website/Domain</label>
+          <input type="url" id="website" name="website">
+        </div>
+        <div class="form-group">
+          <label for="automation">What would you like to automate first?</label>
+          <textarea id="automation" name="automation" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="team">Approx. team size</label>
+          <select id="team" name="team">
+            <option value="">Select</option>
+            <option>1–10</option>
+            <option>11–50</option>
+            <option>51–200</option>
+            <option>200+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="timeline">Timeline</label>
+          <select id="timeline" name="timeline">
+            <option value="">Select</option>
+            <option>ASAP</option>
+            <option>30–60 days</option>
+            <option>60–90 days</option>
+            <option>Planning</option>
+          </select>
+        </div>
+        <div class="form-group consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <label for="consent">I agree to be contacted about this inquiry.</label>
+        </div>
+        <button type="submit" class="cta-button">Send Inquiry</button>
+        <p class="privacy-note">We respect your privacy. Your information will only be used to respond to this inquiry.</p>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
+    </div>
+  </footer>
+  <div class="sticky-footer">
+    <a id="stickyCta" href="index.html#video-series">⚡ Get Our Automation Stack – Watch the Video Series</a>
+  </div>
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
+      });
+    }
+  </script>
+</body>
+</html>
