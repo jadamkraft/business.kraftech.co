@@ -221,28 +221,6 @@ section {
   }
 }
 
-/* sticky footer */
-.sticky-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--accent);
-  text-align: center;
-  padding: 0.75rem;
-}
-
-.sticky-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-@media (min-width: 601px) {
-  .sticky-footer {
-    display: none;
-  }
-}
-
 /* card layout */
 .card-grid {
   display: grid;
