@@ -135,13 +135,16 @@ listHtml = listHtml.replace(/<ul class="post-list">[\s\S]*?<\/ul>/, `<ul class="
 fs.writeFileSync(blogListPage, listHtml, 'utf8');
 
 if (fs.existsSync(indexPage)) {
-  const featuredPost = posts.find(p => p.featured && p.video && /^https:\/\/iframe\.videodelivery\.net\//.test(p.video));
+  const featuredPost = posts.find(p => p.featured);
   if (featuredPost) {
     let indexHtml = fs.readFileSync(indexPage, 'utf8');
     const summaryHtml = featuredPost.summary ? `      <p>${featuredPost.summary}</p>\n` : '';
-    const seeMore = hadBlogList ? `      <p style="font-size:0.9rem;"><a href="/blog" rel="noopener noreferrer">See more case studies &rarr;</a></p>\n` : '';
-    const videoEmbed = `      <div class="video-wrapper" style="position:relative;padding-top:56.25%;">\n        <iframe src="${featuredPost.video}" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>\n      </div>\n`;
-    const replacement = `    <div class="container">\n      <h2>${featuredPost.title}</h2>\n${videoEmbed}${summaryHtml}${seeMore}    </div>`;
+    const videoSrc = (featuredPost.video && /^https:\/\/iframe\.videodelivery\.net\//.test(featuredPost.video))
+      ? featuredPost.video
+      : 'https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0';
+    const videoEmbed = `      <div class="video-wrapper" style="position:relative;padding-top:56.25%;">\n        <iframe src="${videoSrc}" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>\n      </div>\n`;
+    const readMore = `      <p><a href="/${featuredPost.file}" rel="noopener noreferrer">Read more &rarr;</a></p>\n`;
+    const replacement = `    <div class="container">\n      <h2>${featuredPost.title}</h2>\n${videoEmbed}${summaryHtml}${readMore}    </div>`;
     indexHtml = indexHtml.replace(/<section id="video-series" class="video-series">[\s\S]*?<\/section>/, `<section id="video-series" class="video-series">\n${replacement}\n  </section>`);
     fs.writeFileSync(indexPage, indexHtml, 'utf8');
   }

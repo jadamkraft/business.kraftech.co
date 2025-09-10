@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Kraftech Consulting</title>
+  <meta name="description" content="Fractional CTO & Automation Architect—protecting uptime, compliance, and ROI.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="/about.html" aria-current="page">About</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Fractional CTO & Automation Architect</h1>
+      <p class="subheadline">Protecting uptime, compliance, and ROI for businesses that can’t afford to fail.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Why Companies Hire Me</h2>
+      <p>I’m the translation layer between executives and specialists. Business hears clarity and confidence; technical teams get a partner who won’t micromanage. Momentum stays. Risk drops. Trust compounds.</p>
+      <ul class="value-bullets">
+        <li>$20,000/day fine prevented — cameras restored and timestamps corrected by the deadline</li>
+        <li>Zero-downtime bankruptcy recovery — Starlink deployed to bridge a 30-day ISP gap</li>
+        <li>Connectivity crisis resolved — failing wireless link replaced with fiber; outages eliminated</li>
+        <li>Vendor accountability win — compliance retention fixed without unnecessary hardware</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>How I Work</h2>
+      <ul>
+        <li><strong>Executive Alignment:</strong> tech strategy mapped to business goals and risk tolerance</li>
+        <li><strong>MSP Complement:</strong> I don’t replace your MSP—I make sure you get results from them</li>
+        <li><strong>Automation & AI:</strong> identify, pilot, and scale workflows that save hours every week</li>
+        <li><strong>Documentation & Accountability:</strong> decisions and outcomes tracked; vendors deliver</li>
+      </ul>
+      <p class="note">Service-first leadership; client needs above ego or politics.</p>
+    </section>
+
+    <section>
+      <h2>Representative Wins</h2>
+      <ul>
+        <li>Compliance footage delivered to regulators; supported arrests in illicit operations</li>
+        <li>Rural facility compliance via satellite-backed camera system</li>
+        <li>Post-vendor dispute access restored across multi-NVR environments</li>
+      </ul>
+      <p><a href="/blog.html" rel="noopener noreferrer">See recent posts and practical breakdowns →</a></p>
+    </section>
+
+    <section>
+      <h2>Let’s Talk</h2>
+      <p>Need a right-sized CTO who finds a way instead of saying why it can’t be done? I offer a free Automation Opportunity Review to surface fast ROI.</p>
+      <p><a class="cta-button" href="/contact.html#form">Book your review</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('navMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
+        toggle.setAttribute('aria-expanded', !expanded);
+      });
+    }
+  </script>
+</body>
+</html>
