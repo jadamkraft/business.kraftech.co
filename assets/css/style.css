@@ -269,6 +269,16 @@ section {
   display: flex;
   align-items: center;
   margin-right: 1rem;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+
+.brand img,
+.footer-logo {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .nav-menu {
