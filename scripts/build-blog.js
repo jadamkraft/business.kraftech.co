@@ -57,12 +57,12 @@ if (!hadBlogList) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Kraftech Consulting</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250911">
 </head>
 <body>
   <h1>Blog</h1>
   <main class="container">
-    <ul class="post-list"></ul>
+    <div id="blog-cards" class="card-grid"></div>
   </main>
 </body>
 </html>`;
@@ -125,20 +125,14 @@ posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Build card grid
 const cards = posts.map(p => `    <article class="post-card reveal">
-      <div class="thumbnail">
-        <!-- PLACEHOLDER: user will replace locally -->
-        <img src="assets/logo.svg" alt="Kraftech logo" />
-      </div>
-      <div class="card-content">
-        <h2><a href="${p.file}" rel="noopener noreferrer">${p.title}</a></h2>
-        <p class="summary">${p.summary}</p>
-        <time datetime="${new Date(p.date).toISOString()}">${formatDate(p.date)}</time>
-      </div>
+      <h2><a href="/${p.file}" rel="noopener noreferrer">${p.title}</a></h2>
+      <p class="summary">${p.summary}</p>
+      <time datetime="${new Date(p.date).toISOString()}">${formatDate(p.date)}</time>
     </article>`).join('\n');
 
 let blogHtml = fs.readFileSync(blogListPage, 'utf8');
-const cardsMarkup = posts.length ? `\n${cards}\n    ` : '\n    <p>No posts yet</p>\n    ';
-blogHtml = blogHtml.replace(/<div id="blog-cards" class="card-grid">[\s\S]*?<\/div>/, `<div id="blog-cards" class="card-grid">${cardsMarkup}<\/div>`);
+const cardsMarkup = posts.length ? `\n${cards}\n    ` : '\n    <p>More posts are coming soon.</p>\n    ';
+blogHtml = blogHtml.replace(/<div id="blog-cards" class="card-grid">[\s\S]*?<\/div>/, `<div id="blog-cards" class="card-grid">${cardsMarkup}</div>`);
 fs.writeFileSync(blogListPage, blogHtml, 'utf8');
 
 if (fs.existsSync(indexPage)) {

@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kraftech Consulting | AI & Automation</title>
   <meta name="description" content="AI and workflow automation consulting by J. Adam Kraft.">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20250911">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.5; }
+    .container { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
+    .hero { padding: 2rem 0; text-align: center; }
+    h1, h2, h3 { margin-top: 0; }
+  </style>
   <!-- PLACEHOLDER: add favicon assets locally after pull -->
   <link rel="icon" href="assets/favicon.svg">
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
-    <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
-    <a class="brand" href="index.html#home" aria-label="Kraftech Home">
-      <img src="assets/logo.svg" alt="Kraftech logo" height="28" />
+    <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
+    <a class="brand" href="/index.html#home" aria-label="Kraftech Home">
+      <img src="/assets/logo.svg" alt="Kraftech logo" height="28" />
     </a>
     <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
@@ -93,13 +100,13 @@
 
   <footer>
     <div class="container">
-      <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
-      <img src="assets/logo.svg" alt="Kraftech logo" class="footer-logo" />
+      <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
+      <img src="/assets/logo.svg" alt="Kraftech logo" class="footer-logo" />
       <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
     </div>
   </footer>
-  <script src="scripts/reveal.js" defer></script>
-  <script src="scripts/update-homepage.js" defer></script>
+  <script src="/scripts/reveal.js" defer></script>
+  <script src="/scripts/update-homepage.js" defer></script>
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('navMenu');
