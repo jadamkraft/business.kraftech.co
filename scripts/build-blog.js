@@ -19,11 +19,12 @@ const md = new MarkdownIt({
 // Conservative sanitizer config
 const sanitize = (html) =>
   sanitizeHtml(html, {
-    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1','h2','h3','iframe','figure','figcaption']),
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img','h1','h2','h3','iframe','figure','figcaption','time']),
     allowedAttributes: {
       a: ['href', 'name', 'target', 'rel'],
       img: ['src', 'alt', 'title', 'loading', 'decoding'],
       iframe: ['src', 'title', 'allow', 'allowfullscreen', 'frameborder'],
+      time: ['datetime'],
       '*': ['id', 'class']
     },
     allowedSchemes: ['http', 'https', 'mailto'],
@@ -88,10 +89,11 @@ for (const file of files) {
   const postPath = path.join(root, outFile);
 
   // Fill template placeholders
-  const tagsText = Array.isArray(data.tags) ? data.tags.join(', ') : '';
+  const tags = Array.isArray(data.tags) ? data.tags : [];
+  const tagsHtml = tags.map(t => `<span class="tag-pill">${t}</span>`).join('');
   const summaryText = (data.summary || '').toString();
   const videoEmbed = data.video
-    ? `<div class="video-wrapper" style="margin:2rem 0;">
+    ? `<div class="video-wrapper">
          <iframe src="${data.video}" title="Video" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
        </div>`
     : '';
@@ -100,16 +102,17 @@ for (const file of files) {
     .replace(/<title>.*?<\/title>/, `<title>${data.title} | Kraftech Consulting<\/title>`)
     .replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${summaryText.replace(/"/g,'&quot;')}">`)
     .replace(/<h1>.*?<\/h1>/, `<h1>${data.title}<\/h1>`)
-    .replace(/<p class="post-date">.*?<\/p>/, `<p class="post-date">${formatDate(data.date)}${tagsText ? ` • Tags: ${tagsText}` : ''}<\/p>`)
-    .replace(/<p>Post summary.*?<\/p>/, summaryText ? `<p>${summaryText}<\/p>` : '')
-    .replace(/<div class="video-wrapper"[\s\S]*?<\/div>/, videoEmbed || '')
-    .replace(/<p>Full article content[\s\S]*?<\/p>/, `<div class="post-body">${safeBody}<\/div>`);
+    .replace(/<time datetime=".*?">.*?<\/time>/, `<time datetime="${(data.date instanceof Date) ? data.date.toISOString() : data.date}">${formatDate(data.date)}<\/time>`)
+    .replace(/<span class="tags"><\/span>/, `<span class="tags">${tagsHtml}<\/span>`)
+    .replace(/<p>Post summary paragraph.*?<\/p>/, summaryText ? `<p>${summaryText}<\/p>` : '')
+    .replace(/<div class="video-wrapper">[\s\S]*?<\/div>/, videoEmbed || '')
+    .replace(/<div class="post-body">[\s\S]*?<\/div>/, `<div class="post-body">${safeBody}<\/div>`);
 
   fs.writeFileSync(postPath, html, 'utf8');
 
   posts.push({
     title: data.title,
-    date: data.date,
+    date: (data.date instanceof Date) ? data.date.toISOString() : data.date,
     featured: !!data.featured,
     file: outFile,
     summary: summaryText,
@@ -120,31 +123,35 @@ for (const file of files) {
 // Sort newest first
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-// Build list items
-const listItems = posts.map(p => {
-  const badge = p.featured ? '<span class="badge">Featured</span>' : '';
-  return `      <li${p.featured ? ' class="featured"' : ''}>
-        <a href="${p.file}">${p.title}</a>
-        <span class="post-date">${formatDate(p.date)}</span> ${badge}
-      </li>`;
-}).join('\n');
+// Build card grid
+const cards = posts.map(p => `    <article class="post-card reveal">
+      <div class="thumbnail">
+        <!-- PLACEHOLDER: user will replace locally -->
+        <img src="assets/logo.svg" alt="Kraftech logo" />
+      </div>
+      <div class="card-content">
+        <h2><a href="${p.file}" rel="noopener noreferrer">${p.title}</a></h2>
+        <p class="summary">${p.summary}</p>
+        <time datetime="${new Date(p.date).toISOString()}">${formatDate(p.date)}</time>
+      </div>
+    </article>`).join('\n');
 
-// Replace the UL in blog.html
-let listHtml = fs.readFileSync(blogListPage, 'utf8');
-listHtml = listHtml.replace(/<ul class="post-list">[\s\S]*?<\/ul>/, `<ul class="post-list">\n${listItems}\n    </ul>`);
-fs.writeFileSync(blogListPage, listHtml, 'utf8');
+let blogHtml = fs.readFileSync(blogListPage, 'utf8');
+const cardsMarkup = posts.length ? `\n${cards}\n    ` : '\n    <p>No posts yet</p>\n    ';
+blogHtml = blogHtml.replace(/<div id="blog-cards" class="card-grid">[\s\S]*?<\/div>/, `<div id="blog-cards" class="card-grid">${cardsMarkup}<\/div>`);
+fs.writeFileSync(blogListPage, blogHtml, 'utf8');
 
 if (fs.existsSync(indexPage)) {
   const featuredPost = posts.find(p => p.featured);
   if (featuredPost) {
     let indexHtml = fs.readFileSync(indexPage, 'utf8');
-    const summaryHtml = featuredPost.summary ? `      <p>${featuredPost.summary}</p>\n` : '';
+    const summaryHtml = featuredPost.summary ? `        <p>${featuredPost.summary}</p>\n` : '';
     const videoSrc = (featuredPost.video && /^https:\/\/iframe\.videodelivery\.net\//.test(featuredPost.video))
       ? featuredPost.video
       : 'https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0';
-    const videoEmbed = `      <div class="video-wrapper" style="position:relative;padding-top:56.25%;">\n        <iframe src="${videoSrc}" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>\n      </div>\n`;
-    const readMore = `      <p><a href="/${featuredPost.file}" rel="noopener noreferrer">Read more &rarr;</a></p>\n`;
-    const replacement = `    <div class="container">\n      <h2>${featuredPost.title}</h2>\n${videoEmbed}${summaryHtml}${readMore}    </div>`;
+    const videoEmbed = `      <div class="video-wrapper">\n        <iframe src="${videoSrc}" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>\n      </div>\n`;
+    const card = `      <article class="featured-card reveal">\n        <h2><a href="/${featuredPost.file}" rel="noopener noreferrer">${featuredPost.title}</a></h2>\n${summaryHtml}        <p><a href="/${featuredPost.file}" rel="noopener noreferrer">Read more &rarr;</a></p>\n      </article>\n`;
+    const replacement = `    <div class="container">\n${videoEmbed}${card}    </div>`;
     indexHtml = indexHtml.replace(/<section id="video-series" class="video-series">[\s\S]*?<\/section>/, `<section id="video-series" class="video-series">\n${replacement}\n  </section>`);
     fs.writeFileSync(indexPage, indexHtml, 'utf8');
   }

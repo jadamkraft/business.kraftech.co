@@ -7,15 +7,17 @@
   <meta name="description" content="AI and workflow automation consulting by J. Adam Kraft.">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
+  <!-- PLACEHOLDER: add favicon assets locally after pull -->
+  <link rel="icon" href="assets/favicon.svg">
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
+    <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
+    <a class="brand" href="index.html#home" aria-label="Kraftech Home">
+      <img src="assets/logo.svg" alt="Kraftech logo" height="28" />
+    </a>
     <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
       <li><a href="#home">Home</a></li>
@@ -46,35 +48,57 @@
   </header>
 
   <section id="about" class="about">
-    <div class="container">
-      <h2>Build Smarter Systems</h2>
-      <p>You don’t need a “yes-but” hacker. You need an IT leader who listens, translates, and delivers. I align executive goals with practical, right-sized tech—protecting uptime, compliance, and ROI. I bridge specialists and decision-makers so projects move, vendors perform, and money isn’t wasted.</p>
-      <ul class="value-bullets">
+    <div class="panel reveal">
+      <h2>Outcomes</h2>
+      <ul>
         <li>$20k/day fine avoided by restoring compliance-critical cameras on deadline</li>
         <li>Downtime averted during bankruptcy via Starlink failover</li>
-        <li>Failing wireless replaced with fiber; vendor retention gaps fixed without waste</li>
+        <li>Failing wireless replaced with fiber; vendor gaps closed without waste</li>
       </ul>
-      <p><a href="/about.html" rel="noopener noreferrer">How I work</a> · <a href="/blog.html" rel="noopener noreferrer">Practical wins on the blog</a></p>
+    </div>
+    <div class="panel panel--alt reveal">
+      <h2>How I Work</h2>
+      <ul>
+        <li>Executive alignment from day one</li>
+        <li>Complement your MSP, not replace it</li>
+        <li>Automation &amp; AI where it returns fast</li>
+        <li>Documentation &amp; accountability baked in</li>
+      </ul>
+      <p><a href="/about.html" rel="noopener noreferrer">About &rarr;</a></p>
+    </div>
+    <div class="panel reveal">
+      <h2>Representative Wins</h2>
+      <ul>
+        <li>Gen-X tech journey to AI video rollout</li>
+        <li>Compliance cameras restored under pressure</li>
+        <li>Continuity plan kept systems running through bankruptcy</li>
+      </ul>
+      <p><a href="/blog.html" rel="noopener noreferrer">Read more &rarr;</a></p>
     </div>
   </section>
 
   <section id="video-series" class="video-series">
     <div class="container">
-      <h2>Why Your Business Needs a Fractional CTO (Now More Than Ever)</h2>
-      <div class="video-wrapper" style="position:relative;padding-top:56.25%;">
-        <iframe src="https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0" style="position:absolute;top:0;left:0;width:100%;height:100%;" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
+      <div class="video-wrapper">
+        <iframe src="https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
       </div>
-      <p>Most businesses rely on MSPs to keep operations running. But an MSP isn’t a CTO. Here’s why a Fractional CTO is essential for aligning IT strategy with business growth—and why now is the time to invest.
+      <article class="featured-card reveal">
+        <h2><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Why Your Business Needs a Fractional CTO (Now More Than Ever)</a></h2>
+        <p>Most businesses rely on MSPs to keep operations running. But an MSP isn’t a CTO. Here’s why a Fractional CTO is essential for aligning IT strategy with business growth—and why now is the time to invest.
 </p>
-      <p><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Read more &rarr;</a></p>
+        <p><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Read more &rarr;</a></p>
+      </article>
     </div>
   </section>
 
   <footer>
     <div class="container">
+      <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
+      <img src="assets/logo.svg" alt="Kraftech logo" class="footer-logo" />
       <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
     </div>
   </footer>
+  <script src="scripts/reveal.js" defer></script>
   <script src="scripts/update-homepage.js" defer></script>
   <script>
     const toggle = document.querySelector('.nav-toggle');

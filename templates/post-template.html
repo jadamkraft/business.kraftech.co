@@ -7,15 +7,17 @@
   <meta name="description" content="Post summary here.">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
+  <!-- PLACEHOLDER: add favicon assets locally after pull -->
+  <link rel="icon" href="assets/favicon.svg">
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
+    <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
+    <a class="brand" href="index.html#home" aria-label="Kraftech Home">
+      <img src="assets/logo.svg" alt="Kraftech logo" height="28" />
+    </a>
     <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
       <li><a href="index.html#home">Home</a></li>
@@ -24,26 +26,34 @@
       <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
-  <header class="page-header">
+  <header class="post-hero reveal">
     <div class="container">
       <h1>Post Title</h1>
-      <p class="post-date">January 1, 2025 • Tags: automation, ai</p>
+      <div class="post-meta">
+        <time datetime="2025-01-01">January 1, 2025</time>
+        <span class="tags"></span>
+      </div>
     </div>
   </header>
 
-  <main class="container">
+  <main class="post-content reveal">
     <p>Post summary paragraph that introduces the key lessons.</p>
-    <div class="video-wrapper" style="margin:2rem 0;">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEOID" title="Video" frameborder="0" allowfullscreen></iframe>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/VIDEOID" title="Video" allowfullscreen frameborder="0"></iframe>
     </div>
-    <p>Full article content written in HTML or generated from markdown.</p>
+    <div class="post-body">
+      <p>Full article content written in HTML or generated from markdown.</p>
+    </div>
   </main>
 
   <footer>
     <div class="container">
+      <!-- PLACEHOLDER: replace assets/logo.svg locally after pull -->
+      <img src="assets/logo.svg" alt="Kraftech logo" class="footer-logo" />
       <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
     </div>
   </footer>
+  <script src="scripts/reveal.js" defer></script>
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('navMenu');
