@@ -3,79 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kraftech | Compliance-First IT, Automation & Fractional CTO for SMBs</title>
-  <meta name="description" content="Kraftech designs secure networks, compliance-ready surveillance, Microsoft 365, and AI automation for SMBs. Retainers and a la carte services available." />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
+  <title>Kraftech.co | Compliance-Ready IT, Automation & Support that just works for your business</title>
+  <meta name="description" content="Kraftech.co designs secure networks, compliance-ready surveillance, Microsoft 365, and practical automations for SMBs in healthcare, retail, cannabis, legal, and manufacturing." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
-    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
       <li><a href="index.html#home">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown" aria-label="Services submenu">
+          <li><a href="services/network-security.html">Network & Security</a></li>
+          <li><a href="services/compliance-surveillance.html">Compliance & Surveillance</a></li>
+          <li><a href="services/m365-cloud.html">Microsoft 365 & Cloud</a></li>
+          <li><a href="services/automation-ai.html">Automation & AI</a></li>
+          <li><a href="services/it-strategy.html">IT Management & Strategy</a></li>
+          <li><a href="services/webdev-marketing.html">WebDev & Marketing</a></li>
+        </ul>
+      </li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <!-- Blog intentionally unlinked for now -->
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <header class="hero" id="home">
-    <video class="hero-bg" autoplay muted loop playsinline>
-      <source src="assets/images/hero-bg.mp4" type="video/mp4" />
-    </video>
-    <div class="overlay"></div>
+  <header class="hero" id="home" aria-label="Hero">
+    <div class="hero-video">
+      <!-- Cloudflare Stream embed (muted, autoplay, loop, controls hidden) -->
+      <iframe
+        src="https://iframe.videodelivery.net/42c8ee298e67bd8b365e072a4b5fafda?muted=true&autoplay=true&loop=true&controls=false&poster=none"
+        title="Background video"
+        allow="autoplay; encrypted-media"
+        aria-hidden="true"
+        tabindex="-1">
+      </iframe>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1>Compliance-First IT that Just Works</h1>
-      <p class="subheadline">We build secure networks, surveillance, Microsoft 365, and automations that keep your firm up, compliant, and fast.</p>
-      <a class="cta-button" href="pricing.html">See Plans & A La Carte</a>
+      <h1 class="reveal">Compliance-ready IT, automation & support that just works for your business</h1>
+      <p class="subheadline reveal">We build secure networks, surveillance, Microsoft 365, and automations that keep you up, compliant, and fast — across healthcare, retail, cannabis, legal, and manufacturing.</p>
+      <a class="cta-button reveal" href="pricing.html">See Plans & A La Carte</a>
     </div>
   </header>
 
-  <section id="about" class="about">
-    <div class="container">
-      <h2>Why Kraftech</h2>
-      <p>We design and operate business-critical IT with a compliance mindset. Law firms and high-regulation industries rely on us for 99.99% uptime, audit-ready surveillance, and secure Microsoft 365 — plus Power Automate and AI workflows that cut busywork.</p>
-    </div>
+  <section id="about" class="about container">
+    <h2 class="reveal">Why Kraftech.co</h2>
+    <p class="reveal">We operate with a compliance mindset and a reliability goal of 99.99% uptime. From secure WAN/LAN and remote access to audit-ready surveillance and Microsoft 365, we meet you where you are and automate what wastes time.</p>
   </section>
 
-  <section class="trust">
-    <div class="container">
-      <blockquote>“Compliance saves and zero-downtime operations — that’s the standard.”</blockquote>
-    </div>
-  </section>
-
-  <section id="video-series" class="video-series">
-    <div class="container">
-      <div class="video-wrapper">
-        <iframe src="https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
-      </div>
-      <article class="featured-card reveal">
-        <h2><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Why Your Business Needs a Fractional CTO (Now More Than Ever)</a></h2>
-        <p>Most businesses rely on MSPs to keep operations running. But an MSP isn’t a CTO. Here’s why a Fractional CTO is essential for aligning IT strategy with business growth—and why now is the time to invest.
-</p>
-        <p><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Read more &rarr;</a></p>
-      </article>
-    </div>
+  <section class="container">
+    <h2 class="reveal">What we deliver</h2>
+    <ul class="pillars reveal">
+      <li><strong>Network & Security:</strong> wired, wireless, remote access; firewalls, VPNs, VLANs; multi-site design.</li>
+      <li><strong>Compliance & Surveillance:</strong> cameras, access control, logging; retention & retrieval for audits and investigations.</li>
+      <li><strong>Microsoft 365 & Cloud:</strong> migrations, identity, email, storage, security policies; backup/DR; <em>bridging legacy on-prem AD during transitions</em>.</li>
+      <li><strong>Automation & AI:</strong> Power Automate + PowerShell; compliance reporting; billing; client communications.</li>
+      <li><strong>IT Management & Strategy:</strong> retainer support with SLAs; budgeting; vendors; clear executive translation.</li>
+      <li><strong>WebDev & Marketing:</strong> fast brochure/landing sites, funnels, newsletters, SEO basics, and automation-assisted content ops.</li>
+    </ul>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
+      <p>&copy; 2025 Kraft Digital Solutions — <strong>kraftech.co</strong></p>
     </div>
   </footer>
 
-  <script src="scripts/update-homepage.js" defer></script>
+  <script src="ui.js" defer></script>
   <script>
+    // Mobile menu toggle (no external deps)
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('navMenu');
     if (toggle && menu) {
       toggle.addEventListener('click', () => {
         menu.classList.toggle('open');
-        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
-        toggle.setAttribute('aria-expanded', !expanded);
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
       });
+      toggle.dataset.navBound = 'inline';
     }
   </script>
 </body>

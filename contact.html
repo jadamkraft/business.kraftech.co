@@ -3,37 +3,48 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Kraftech</title>
-  <meta name="description" content="Contact Kraftech for retainers, a la carte projects, and compliance-focused IT."/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <title>Contact | Kraftech.co</title>
+  <meta name="description" content="Contact Kraftech.co for retainers, a la carte projects, and compliance-ready IT."/>
+  <link rel="stylesheet" href="style.css"/>
   <style>
-    form {max-width:640px;margin:0 auto;}
-    label {display:block;margin:0.5rem 0 0.25rem;}
-    input, textarea {width:100%;padding:0.75rem;border:1px solid #ccc;border-radius:6px;}
-    button[type=submit]{margin-top:1rem;}
+    form {max-width:680px;margin:0 auto}
+    label {display:block;margin:.5rem 0 .25rem}
+    input, textarea {width:100%;padding:.75rem;border:1px solid #ccc;border-radius:6px}
+    button[type=submit]{margin-top:1rem}
+    .muted{color:#555}
   </style>
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
-    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
       <li><a href="index.html#home">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown" aria-label="Services submenu">
+          <li><a href="services/network-security.html">Network & Security</a></li>
+          <li><a href="services/compliance-surveillance.html">Compliance & Surveillance</a></li>
+          <li><a href="services/m365-cloud.html">Microsoft 365 & Cloud</a></li>
+          <li><a href="services/automation-ai.html">Automation & AI</a></li>
+          <li><a href="services/it-strategy.html">IT Management & Strategy</a></li>
+          <li><a href="services/webdev-marketing.html">WebDev & Marketing</a></li>
+        </ul>
+      </li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <!-- Blog intentionally unlinked -->
       <li><a aria-current="page" href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <header class="page-header">
     <div class="container">
-      <h1>Let’s Talk</h1>
-      <p>Tell us about your firm and what you need — retainer or a la carte.</p>
+      <h1 class="reveal">Let’s talk</h1>
+      <p class="reveal">Tell us about your business and what you need — retainer or a la carte.</p>
     </div>
   </header>
 
   <main class="container">
-    <form id="contactForm" novalidate>
+    <form id="contactForm" method="POST" novalidate>
       <label for="name">Name</label>
       <input id="name" name="name" required />
 
@@ -46,34 +57,56 @@
       <label for="message">What do you need help with?</label>
       <textarea id="message" name="message" rows="6" required></textarea>
 
+      <!-- Hidden fields for funnel context -->
+      <input type="hidden" id="page_url" name="page_url" />
+      <input type="hidden" id="selected_plan" name="selected_plan" />
+      <input type="hidden" name="source" value="website" />
+
       <button class="cta-button" type="submit">Send</button>
-      <p id="status" class="muted" role="status" aria-live="polite" style="margin-top:0.75rem;"></p>
+      <p id="status" class="muted" role="status" aria-live="polite" style="margin-top:.75rem;"></p>
     </form>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
+      <p>&copy; 2025 Kraft Digital Solutions — <strong>kraftech.co</strong></p>
     </div>
   </footer>
 
+  <script src="ui.js" defer></script>
   <script>
-    const toggle = document.querySelector('.nav-toggle'); const menu = document.getElementById('navMenu');
-    if (toggle && menu) { toggle.addEventListener('click', () => { menu.classList.toggle('open'); const expanded = toggle.getAttribute('aria-expanded') === 'true' || false; toggle.setAttribute('aria-expanded', !expanded); }); }
+    // Prefill hidden fields
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan') || '';
+    const pageUrl = window.location.href;
+    const elPlan = document.getElementById('selected_plan');
+    const elPage = document.getElementById('page_url');
+    if (elPlan) elPlan.value = plan;
+    if (elPage) elPage.value = pageUrl;
 
-    // Minimal client-side validation & placeholder submit (no external calls)
-    const f = document.getElementById('contactForm');
-    f?.addEventListener('submit', (e) => {
+    // Simple client-side validation + Formspree POST
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xovdvvnd';
+
+    form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = f.name.value.trim();
-      const email = f.email.value.trim();
-      const msg = f.message.value.trim();
-      if (!name || !email || !msg) {
-        document.getElementById('status').textContent = 'Please fill out all required fields.';
+      if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) {
+        status.textContent = 'Please fill out all required fields.';
         return;
       }
-      document.getElementById('status').textContent = 'Thanks — we’ll be in touch shortly.';
-      f.reset();
+      status.textContent = 'Sending…';
+      try {
+        const formData = new FormData(form);
+        const res = await fetch(FORMSPREE_ENDPOINT, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          window.location.href = 'thank-you.html';
+        } else {
+          status.textContent = 'Something went wrong. Please try again or email us directly.';
+        }
+      } catch {
+        status.textContent = 'Network error. Please try again in a moment.';
+      }
     });
   </script>
 </body>

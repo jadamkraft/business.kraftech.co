@@ -1,96 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Services | Kraftech</title>
-  <meta name="description" content="Network & Security, Compliance & Surveillance, Microsoft 365, Automation & AI, and Fractional IT Management services for SMBs."/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet"/>
+  <title>Services | Kraftech.co</title>
+  <meta name="description" content="Full-stack services: Network & Security, Compliance & Surveillance, Microsoft 365 & Cloud, Automation & AI, IT Strategy, and WebDev & Marketing."/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
-    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
       <li><a href="index.html#home">Home</a></li>
-      <li><a aria-current="page" href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a aria-current="page" href="services.html">Services</a>
+        <ul class="dropdown" aria-label="Services submenu">
+          <li><a href="services/network-security.html">Network & Security</a></li>
+          <li><a href="services/compliance-surveillance.html">Compliance & Surveillance</a></li>
+          <li><a href="services/m365-cloud.html">Microsoft 365 & Cloud</a></li>
+          <li><a href="services/automation-ai.html">Automation & AI</a></li>
+          <li><a href="services/it-strategy.html">IT Management & Strategy</a></li>
+          <li><a href="services/webdev-marketing.html">WebDev & Marketing</a></li>
+        </ul>
+      </li>
       <li><a href="pricing.html">Pricing</a></li>
-      <li><a href="blog.html">Blog</a></li>
+      <!-- Blog intentionally unlinked -->
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <header class="page-header">
     <div class="container">
-      <h1>Full-Stack Offerings</h1>
-      <p>Built for SMBs that need reliability, compliance, and speed.</p>
+      <h1 class="reveal">Full-Stack Services</h1>
+      <p class="reveal">Built for small and mid-size businesses that need reliability, compliance, and speed.</p>
     </div>
   </header>
 
   <main class="container">
-    <section>
-      <h2>1) Network & Security Infrastructure</h2>
-      <p><strong>Copy:</strong> Your firm can’t afford downtime. We build secure, reliable networks that just work — whether your team is in the office, in court, or working remotely.</p>
-      <ul>
-        <li>Wired, wireless, remote access</li>
-        <li>Firewalls, VPNs, VLANs; branch offices/remote work</li>
-        <li>24/7 reliability, multi-site design (ZeroTier, Ubiquiti)</li>
-      </ul>
+    <section class="reveal">
+      <h2>Network & Security Infrastructure</h2>
+      <p>Your business can’t afford downtime. We build secure, reliable networks that just work — in office, on the road, or across sites.</p>
+      <p><a class="text-link" href="services/network-security.html">Learn more →</a></p>
     </section>
 
-    <section>
-      <h2>2) Compliance & Surveillance Systems</h2>
-      <p><strong>Copy:</strong> From law firms to dispensaries, we keep your operations compliant and audit-ready. Cameras and access control systems aren’t just security — they’re protection against liability.</p>
-      <ul>
-        <li>Deploy/manage cameras, access control, and logging</li>
-        <li>Footage retention/retrieval for legal and regulatory audits</li>
-        <li>Experienced with regulators and investigations</li>
-      </ul>
+    <section class="reveal">
+      <h2>Compliance & Surveillance Systems</h2>
+      <p>From healthcare to retail and cannabis, we keep operations audit-ready. Cameras and access control aren’t just security — they’re protection against liability.</p>
+      <p><a class="text-link" href="services/compliance-surveillance.html">Learn more →</a></p>
     </section>
 
-    <section>
-      <h2>3) Cloud & Microsoft 365 Management</h2>
-      <p><strong>Copy:</strong> Your business runs on documents and email. We secure, manage, and back up Microsoft 365 so you never lose a file or face downtime.</p>
-      <ul>
-        <li>Migrations to Microsoft 365 and Azure</li>
-        <li>Identity, email, file storage, security policies</li>
-        <li>Backup/DR (Veeam, Azure Backup, Rightworks/QBE experience)</li>
-      </ul>
+    <section class="reveal">
+      <h2>Microsoft 365 & Cloud Management</h2>
+      <p>Your business runs on documents and email. We secure, manage, and back up Microsoft 365 so you avoid data loss and downtime — including <em>bridging legacy on-prem AD</em> during migrations.</p>
+      <p><a class="text-link" href="services/m365-cloud.html">Learn more →</a></p>
     </section>
 
-    <section>
-      <h2>4) Automation & AI Workflows</h2>
-      <p><strong>Copy:</strong> Why do in hours what can be automated in minutes? We cut wasted time by building automations tailored to your firm’s daily operations.</p>
-      <ul>
-        <li>Automate compliance reporting, billing, client comms</li>
-        <li>Power Automate, PowerShell, pragmatic AI integrations</li>
-        <li>Reduce manual work; measurable productivity gains</li>
-      </ul>
+    <section class="reveal">
+      <h2>Automation & AI Workflows</h2>
+      <p>Why do in hours what can be automated in minutes? We cut wasted time with Power Automate, PowerShell, and practical AI.</p>
+      <p><a class="text-link" href="services/automation-ai.html">Learn more →</a></p>
     </section>
 
-    <section>
-      <h2>5) IT Management & Strategic Consulting</h2>
-      <p><strong>Copy:</strong> You don’t need a full-time CIO. You need a partner who makes sure technology helps your business grow — without the jargon.</p>
-      <ul>
-        <li>Fractional IT department: budgeting, vendors, roadmap</li>
-        <li>Retainer support with SLAs</li>
-        <li>Executive-level translation of tech into outcomes</li>
-      </ul>
+    <section class="reveal">
+      <h2>IT Management & Strategic Consulting</h2>
+      <p>You don’t need a full-time CIO. You need a partner who ensures technology helps your business grow — without the jargon.</p>
+      <p><a class="text-link" href="services/it-strategy.html">Learn more →</a></p>
     </section>
 
-    <p style="margin-top:2rem;"><a class="cta-button" href="pricing.html">See Plans & A La Carte</a></p>
+    <section class="reveal">
+      <h2>Web Development & Marketing</h2>
+      <p>Fast brochure/landing sites, email capture, newsletters, SEO basics, and automation-assisted content ops to compete with bigger players.</p>
+      <p><a class="text-link" href="services/webdev-marketing.html">Learn more →</a></p>
+    </section>
+
+    <p style="margin-top:2rem" class="reveal"><a class="cta-button" href="pricing.html">See Plans & A La Carte</a></p>
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
+      <p>&copy; 2025 Kraft Digital Solutions — <strong>kraftech.co</strong></p>
     </div>
   </footer>
 
-  <script>
-    const toggle = document.querySelector('.nav-toggle'); const menu = document.getElementById('navMenu');
-    if (toggle && menu) { toggle.addEventListener('click', () => { menu.classList.toggle('open'); const expanded = toggle.getAttribute('aria-expanded') === 'true' || false; toggle.setAttribute('aria-expanded', !expanded); }); }
-  </script>
+  <script src="ui.js" defer></script>
 </body>
 </html>

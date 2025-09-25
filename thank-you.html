@@ -1,62 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You | Kraftech</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/form.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank you | Kraftech.co</title>
+  <meta name="description" content="Thanks — we’ll respond shortly."/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
   <nav class="site-nav" aria-label="Main Navigation">
-    <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
-    <a class="brand" href="/index.html#home" aria-label="Kraftech Home">
-      <img src="/assets/logo.svg" alt="Kraftech logo" height="28" />
-    </a>
-    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle menu">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
-      <li><a href="/index.html#home">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/contact.html#form">Contact</a></li>
+      <li><a href="index.html#home">Home</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services</a>
+        <ul class="dropdown" aria-label="Services submenu">
+          <li><a href="services/network-security.html">Network & Security</a></li>
+          <li><a href="services/compliance-surveillance.html">Compliance & Surveillance</a></li>
+          <li><a href="services/m365-cloud.html">Microsoft 365 & Cloud</a></li>
+          <li><a href="services/automation-ai.html">Automation & AI</a></li>
+          <li><a href="services/it-strategy.html">IT Management & Strategy</a></li>
+          <li><a href="services/webdev-marketing.html">WebDev & Marketing</a></li>
+        </ul>
+      </li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <!-- Blog intentionally unlinked -->
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-  <section class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
-    <div class="container">
-      <h1>🎉 Thanks for reaching out!</h1>
-      <p style="margin-top: 1rem; font-size: 1.25rem;">
-        We've received your message and will be in touch shortly.
-      </p>
-      <p style="margin-top: 0.5rem; font-size: 1rem;">
-        In the meantime, feel free to explore more about our services or book a time to chat.
-      </p>
-      <a href="/" class="cta" style="margin-top: 2rem; display: inline-block;">Back to Home</a>
-    </div>
-</section>
+  <main class="container" style="padding-top:3rem;padding-bottom:3rem;">
+    <h1 class="reveal">Thanks — we’ll respond shortly.</h1>
+    <p class="reveal">In the meantime, explore what we offer.</p>
+    <p class="reveal"><a class="cta-button" href="services.html">Explore Services</a></p>
+    <!-- TODO: Consider a free resource link here later for growth -->
+  </main>
 
   <footer>
     <div class="container">
-      <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
-      <img src="/assets/logo.svg" alt="Kraftech logo" class="footer-logo" />
-      <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
+      <p>&copy; 2025 Kraft Digital Solutions — <strong>kraftech.co</strong></p>
     </div>
   </footer>
 
-  <script>
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('navMenu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        menu.classList.toggle('open');
-        const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
-        toggle.setAttribute('aria-expanded', !expanded);
-      });
-    }
-  </script>
-
+  <script src="ui.js" defer></script>
 </body>
 </html>
