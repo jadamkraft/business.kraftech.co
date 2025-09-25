@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing & Packages | Kraftech</title>
+  <meta name="description" content="Retainers with SLAs and an a la carte menu for SMB IT, compliance, Microsoft 365, and automation."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    .plan-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
+    .plan {border:1px solid #ddd;border-radius:8px;padding:1.25rem;background:#fff;}
+    .plan h3 {margin-bottom:0.5rem;}
+    .plan .price {font-size:1.25rem;margin:0.25rem 0 0.75rem;}
+    .muted {color:#555;font-size:0.95rem;}
+    .list {margin:0 0 0.75rem 1.25rem;}
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a aria-current="page" href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Plans & A La Carte</h1>
+      <p>Start small or go full-stack. Predictable retainers, or one-off projects that convert later.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Monthly Retainers (Core MSP Offering)</h2>
+    <div class="plan-grid" role="list">
+      <article class="plan" role="listitem">
+        <h3>Foundation</h3>
+        <p class="price">Custom monthly</p>
+        <ul class="list">
+          <li>Cloud & email (Microsoft 365) management</li>
+          <li>Remote support with SLA</li>
+          <li>Identity & security policy baseline</li>
+        </ul>
+        <p class="muted">Good for lean teams getting organized in the cloud.</p>
+      </article>
+
+      <article class="plan" role="listitem">
+        <h3>Growth</h3>
+        <p class="price">Custom monthly</p>
+        <ul class="list">
+          <li>Everything in Foundation</li>
+          <li>Networking & compliance systems management</li>
+          <li>Automation workflows (Power Automate)</li>
+        </ul>
+        <p class="muted">For firms that want visible uptime + efficiency gains.</p>
+      </article>
+
+      <article class="plan" role="listitem">
+        <h3>Enterprise</h3>
+        <p class="price">Custom monthly</p>
+        <ul class="list">
+          <li>Full-stack coverage</li>
+          <li>Guaranteed hours</li>
+          <li>Quarterly strategy sessions</li>
+        </ul>
+        <p class="muted">Fractional CIO experience without full-time headcount.</p>
+      </article>
+    </div>
+
+    <h2 style="margin-top:2rem;">A La Carte Services</h2>
+    <ul class="list">
+      <li>Microsoft 365 migration</li>
+      <li>Cloud backup setup</li>
+      <li>Camera & access control installs</li>
+      <li>Network redesign / security hardening</li>
+      <li>Compliance reporting automation</li>
+    </ul>
+
+    <p style="margin-top:1.5rem;"><a class="cta-button" href="contact.html">Request a Quote</a></p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle'); const menu = document.getElementById('navMenu');
+    if (toggle && menu) { toggle.addEventListener('click', () => { menu.classList.toggle('open'); const expanded = toggle.getAttribute('aria-expanded') === 'true' || false; toggle.setAttribute('aria-expanded', !expanded); }); }
+  </script>
+</body>
+</html>

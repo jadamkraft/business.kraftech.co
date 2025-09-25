@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | Kraftech</title>
+  <meta name="description" content="Network & Security, Compliance & Surveillance, Microsoft 365, Automation & AI, and Fractional IT Management services for SMBs."/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main Navigation">
+    <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
+    <ul id="navMenu" class="nav-menu">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a aria-current="page" href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Full-Stack Offerings</h1>
+      <p>Built for SMBs that need reliability, compliance, and speed.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>1) Network & Security Infrastructure</h2>
+      <p><strong>Copy:</strong> Your firm can’t afford downtime. We build secure, reliable networks that just work — whether your team is in the office, in court, or working remotely.</p>
+      <ul>
+        <li>Wired, wireless, remote access</li>
+        <li>Firewalls, VPNs, VLANs; branch offices/remote work</li>
+        <li>24/7 reliability, multi-site design (ZeroTier, Ubiquiti)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2) Compliance & Surveillance Systems</h2>
+      <p><strong>Copy:</strong> From law firms to dispensaries, we keep your operations compliant and audit-ready. Cameras and access control systems aren’t just security — they’re protection against liability.</p>
+      <ul>
+        <li>Deploy/manage cameras, access control, and logging</li>
+        <li>Footage retention/retrieval for legal and regulatory audits</li>
+        <li>Experienced with regulators and investigations</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3) Cloud & Microsoft 365 Management</h2>
+      <p><strong>Copy:</strong> Your business runs on documents and email. We secure, manage, and back up Microsoft 365 so you never lose a file or face downtime.</p>
+      <ul>
+        <li>Migrations to Microsoft 365 and Azure</li>
+        <li>Identity, email, file storage, security policies</li>
+        <li>Backup/DR (Veeam, Azure Backup, Rightworks/QBE experience)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4) Automation & AI Workflows</h2>
+      <p><strong>Copy:</strong> Why do in hours what can be automated in minutes? We cut wasted time by building automations tailored to your firm’s daily operations.</p>
+      <ul>
+        <li>Automate compliance reporting, billing, client comms</li>
+        <li>Power Automate, PowerShell, pragmatic AI integrations</li>
+        <li>Reduce manual work; measurable productivity gains</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5) IT Management & Strategic Consulting</h2>
+      <p><strong>Copy:</strong> You don’t need a full-time CIO. You need a partner who makes sure technology helps your business grow — without the jargon.</p>
+      <ul>
+        <li>Fractional IT department: budgeting, vendors, roadmap</li>
+        <li>Retainer support with SLAs</li>
+        <li>Executive-level translation of tech into outcomes</li>
+      </ul>
+    </section>
+
+    <p style="margin-top:2rem;"><a class="cta-button" href="pricing.html">See Plans & A La Carte</a></p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle'); const menu = document.getElementById('navMenu');
+    if (toggle && menu) { toggle.addEventListener('click', () => { menu.classList.toggle('open'); const expanded = toggle.getAttribute('aria-expanded') === 'true' || false; toggle.setAttribute('aria-expanded', !expanded); }); }
+  </script>
+</body>
+</html>
