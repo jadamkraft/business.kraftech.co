@@ -1,112 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kraftech Consulting | AI & Automation</title>
-  <meta name="description" content="AI and workflow automation consulting by J. Adam Kraft.">
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250911">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Newsreader:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: system-ui, sans-serif; margin: 0; line-height: 1.5; }
-    .container { max-width: 60rem; margin: 0 auto; padding: 0 1rem; }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1rem; }
-    .hero { padding: 2rem 0; text-align: center; }
-    h1, h2, h3 { margin-top: 0; }
-  </style>
-  <!-- PLACEHOLDER: add favicon assets locally after pull -->
-  <link rel="icon" href="/assets/favicon-32x32.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kraftech | Compliance-First IT, Automation & Fractional CTO for SMBs</title>
+  <meta name="description" content="Kraftech designs secure networks, compliance-ready surveillance, Microsoft 365, and AI automation for SMBs. Retainers and a la carte services available." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Main Navigation">
-    <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
-    <a class="brand" href="/index.html#home" aria-label="Kraftech Home">
-      <img src="/assets/kraftech_logo.png" alt="Kraftech logo" height="28" />
-    </a>
     <button class="nav-toggle" aria-controls="navMenu" aria-expanded="false">&#9776;</button>
     <ul id="navMenu" class="nav-menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/blog.html">Blog</a></li>
-      <li><a href="/contact.html#form">Contact</a></li>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <header class="hero" id="home">
-    <img src="/assets/hero-fallback.jpg" alt="" class="hero-fallback" />
-    <iframe
-      class="hero-bg"
-      src="https://iframe.videodelivery.net/42c8ee298e67bd8b365e072a4b5fafda?autoplay=true&muted=true&loop=true"
-      allow="autoplay; fullscreen; picture-in-picture"
-      loading="lazy"
-    ></iframe>
+    <video class="hero-bg" autoplay muted loop playsinline>
+      <source src="assets/images/hero-bg.mp4" type="video/mp4" />
+    </video>
     <div class="overlay"></div>
     <div class="container hero-content">
-      <h1>Fractional CTO for Automation &amp; AI</h1>
-      <p class="subheadline">Helping SMBs reclaim time, cut costs, and protect compliance — with automation strategies that deliver ROI fast.</p>
-      <ul class="value-bullets">
-        <li>Pinpoint automation opportunities in your business in just 30 minutes</li>
-        <li>Save hours each week with streamlined workflows</li>
-        <li>Get CTO-level guidance without the full-time hire</li>
-      </ul>
-      <a class="cta-button" href="/contact.html#form">👉 Book Your Free Automation Opportunity Review</a>
+      <h1>Compliance-First IT that Just Works</h1>
+      <p class="subheadline">We build secure networks, surveillance, Microsoft 365, and automations that keep your firm up, compliant, and fast.</p>
+      <a class="cta-button" href="pricing.html">See Plans & A La Carte</a>
     </div>
   </header>
 
   <section id="about" class="about">
-    <div class="panel reveal">
-      <h2>Outcomes</h2>
-      <ul>
-        <li>$20k/day fine avoided by restoring compliance-critical cameras on deadline</li>
-        <li>Downtime averted during bankruptcy via Starlink failover</li>
-        <li>Failing wireless replaced with fiber; vendor gaps closed without waste</li>
-      </ul>
+    <div class="container">
+      <h2>Why Kraftech</h2>
+      <p>We design and operate business-critical IT with a compliance mindset. Law firms and high-regulation industries rely on us for 99.99% uptime, audit-ready surveillance, and secure Microsoft 365 — plus Power Automate and AI workflows that cut busywork.</p>
     </div>
-    <div class="panel panel--alt reveal">
-      <h2>How I Work</h2>
-      <ul>
-        <li>Executive alignment from day one</li>
-        <li>Complement your MSP, not replace it</li>
-        <li>Automation &amp; AI where it returns fast</li>
-        <li>Documentation &amp; accountability baked in</li>
-      </ul>
-      <p><a href="/about.html" rel="noopener noreferrer">About &rarr;</a></p>
-    </div>
-    <div class="panel reveal">
-      <h2>Representative Wins</h2>
-      <ul>
-        <li>Gen-X tech journey to AI video rollout</li>
-        <li>Compliance cameras restored under pressure</li>
-        <li>Continuity plan kept systems running through bankruptcy</li>
-      </ul>
-      <p><a href="/blog.html" rel="noopener noreferrer">Read more &rarr;</a></p>
+  </section>
+
+  <section class="trust">
+    <div class="container">
+      <blockquote>“Compliance saves and zero-downtime operations — that’s the standard.”</blockquote>
     </div>
   </section>
 
   <section id="video-series" class="video-series">
     <div class="container">
-      <div class="video-wrapper">
-        <iframe src="https://iframe.videodelivery.net/0d98c6ca61963ec7ebef82d7bf2636d0" allow="autoplay; encrypted-media" allowfullscreen frameborder="0"></iframe>
-      </div>
-      <article class="featured-card reveal">
-        <h2><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Why Your Business Needs a Fractional CTO (Now More Than Ever)</a></h2>
-        <p>Most businesses rely on MSPs to keep operations running. But an MSP isn’t a CTO. Here’s why a Fractional CTO is essential for aligning IT strategy with business growth—and why now is the time to invest.
-</p>
-        <p><a href="/why-your-business-needs-a-fractional-cto-now-more-than-ever.html" rel="noopener noreferrer">Read more &rarr;</a></p>
-      </article>
+      <h2>How We Work</h2>
+      <p>Short walkthrough videos and case notes (coming soon). We’ll show real automations, real saves, and exactly how retainers work.</p>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <!-- PLACEHOLDER: replace /assets/logo.svg locally after pull -->
-      <img src="/assets/kraftech_logo.png" alt="Kraftech logo" class="footer-logo" />
-      <p>&copy; 2025 J. Adam Kraft – Kraftech Consulting</p>
+      <p>&copy; 2025 J. Adam Kraft – Kraftech</p>
     </div>
   </footer>
-  <script src="/scripts/reveal.js" defer></script>
-  <script src="/scripts/update-homepage.js" defer></script>
+
+  <script src="scripts/update-homepage.js" defer></script>
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const menu = document.getElementById('navMenu');
@@ -116,24 +69,6 @@
         const expanded = toggle.getAttribute('aria-expanded') === 'true' || false;
         toggle.setAttribute('aria-expanded', !expanded);
       });
-    }
-  </script>
-  <script>
-    const bgVideo = document.querySelector('.hero-bg');
-    const fallbackImg = document.querySelector('.hero-fallback');
-    if (bgVideo && fallbackImg) {
-      let loaded = false;
-      bgVideo.addEventListener('load', () => {
-        loaded = true;
-      });
-      bgVideo.addEventListener('error', () => {
-        bgVideo.style.display = 'none';
-      });
-      setTimeout(() => {
-        if (!loaded) {
-          bgVideo.style.display = 'none';
-        }
-      }, 4000);
     }
   </script>
 </body>
