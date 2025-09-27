@@ -57,7 +57,7 @@ if (!hadBlogList) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Kraftech Consulting</title>
-  <link rel="stylesheet" href="/assets/css/style.css?v=20250911">
+  <link rel="stylesheet" href="/style.css?v=20250911">
 </head>
 <body>
   <h1>Blog</h1>
