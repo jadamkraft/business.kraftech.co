@@ -5,30 +5,75 @@
   box-sizing: border-box;
 }
 
+:root{
+  --color-primary: #004643;    /* Deep Green (Primary) */
+  --color-beige:   #E8E4DB;    /* Warm Beige */
+  --color-gray:    #B5C0C6;    /* Light Gray */
+  --color-cta:     #FF6F00;    /* Bright Orange (CTA) */
+  --color-navy:    #14213D;    /* Navy Accent */
+
+  --text-color:    #111827;    /* neutral text for light sections */
+  --text-on-dark:  #FFFFFF;
+
+  --font-heading: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(0,0,0,.12);
+
+  --surface: #FFFFFF;
+  --surface-alt: #F7F8FA;
+  --color-muted: #6B7280;
+}
+
+/* Local font fallbacks (optional; uncomment when you add files to /assets/fonts/)
+@font-face{
+  font-family:"Montserrat";
+  src:
+    local("Montserrat"),
+    url("/assets/fonts/Montserrat-Variable.woff2") format("woff2");
+  font-weight: 700 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family:"Inter";
+  src:
+    local("Inter"),
+    url("/assets/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 400 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face{
+  font-family:"JetBrains Mono";
+  src:
+    local("JetBrains Mono"),
+    url("/assets/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+html { font-size: 16px; }
+
 body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background: #fff;
   line-height: 1.6;
-  color: var(--text);
-  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-:root {
-  --text: #111;
-  --muted: #555;
-  --primary: #0b84f3;
-  --surface: #fff;
-  --surface-alt: #f7f8fa;
-}
-
-h1, h2, h3, h4 {
-  font-family: Newsreader, serif;
-  font-weight: 600;
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
   line-height: 1.2;
 }
 
-h1 {
-  font-size: 2.875rem;
-}
+h1 { font-size: 2.875rem; }
 
 h2 {
   font-size: 2.125rem;
@@ -46,14 +91,21 @@ p {
   margin-bottom: 1rem;
 }
 
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+}
+
 blockquote {
-  font-family: Newsreader, serif;
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   font-style: italic;
   margin: 2rem 0;
-  color: var(--muted);
+  color: var(--color-muted);
   padding-left: 1rem;
-  border-left: 4px solid var(--primary);
+  border-left: 4px solid var(--color-primary);
 }
 
 .container {
@@ -73,8 +125,8 @@ section {
 }
 
 a {
-  color: var(--primary);
-  text-decoration-color: var(--primary);
+  color: var(--color-primary);
+  text-decoration-color: var(--color-primary);
 }
 
 a:hover,
@@ -84,7 +136,7 @@ a:focus {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -154,21 +206,38 @@ button:focus-visible {
   margin-bottom: 0.5rem;
 }
 
-.cta-button {
+.cta-button,
+.button-primary {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--primary);
+  padding: .9rem 1.3rem;
+  border-radius: var(--radius);
+  background: var(--color-cta);
   color: #fff;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 4px;
   border: none;
-  transition: background 0.3s ease;
+  box-shadow: var(--shadow);
+  transition: transform .08s ease, opacity .2s ease;
   cursor: pointer;
 }
 
 .cta-button:hover,
-.cta-button:focus {
-  background: #0666c2;
+.cta-button:focus,
+.button-primary:hover,
+.button-primary:focus {
+  transform: translateY(-1px);
+  opacity: .95;
+}
+
+.button-secondary {
+  display: inline-block;
+  padding: .9rem 1.3rem;
+  border-radius: var(--radius);
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow);
 }
 
 .tagline {
@@ -176,29 +245,32 @@ button:focus-visible {
   margin-bottom: 1.5rem;
 }
 
-.cta, .secondary-cta {
+.cta,
+.secondary-cta {
   display: inline-block;
   margin: 0.5rem 0.25rem;
-  padding: 0.75rem 1.5rem;
+  padding: .9rem 1.3rem;
   text-decoration: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.cta {
+  background: var(--color-cta);
   color: #fff;
-  background: var(--primary);
-  border-radius: 4px;
-  transition: background 0.3s ease;
+  font-weight: 700;
 }
 
 .secondary-cta {
-  background: #666;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
 }
 
-.cta:hover,
-.secondary-cta:hover {
-  background: #0666c2;
-}
-
-section {
-  padding: 3rem 0;
-}
+.bg-primary { background: var(--color-primary); color: var(--text-on-dark); }
+.bg-beige   { background: var(--color-beige); }
+.bg-gray    { background: var(--color-gray); }
+.text-navy  { color: var(--color-navy); }
 
 .page-header {
   text-align: center;
@@ -218,7 +290,7 @@ section {
 .post-date {
   display: block;
   font-size: 0.875rem;
-  color: #555;
+  color: var(--color-muted);
 }
 
 /* navigation */
@@ -259,7 +331,7 @@ section {
 
 .nav-menu a {
   text-decoration: none;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .has-dropdown {
@@ -299,7 +371,7 @@ section {
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: var(--primary);
+  color: var(--color-primary);
   margin-left: auto;
 }
 
@@ -377,14 +449,14 @@ section {
 .summary {
   flex-grow: 1;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: var(--color-muted);
 }
 
 .card-cta {
   align-self: flex-start;
   margin-top: 1rem;
   text-decoration: none;
-  color: var(--primary);
+  color: var(--color-primary);
 }
 
 .post-hero {
@@ -398,7 +470,7 @@ section {
   flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: var(--muted);
+  color: var(--color-muted);
 }
 
 .tag-pill {
@@ -411,7 +483,7 @@ section {
 }
 
 .tag-pill:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -509,7 +581,7 @@ footer {
   margin-top: 0.5rem;
 }
 
-.muted { color:#555; }
+.muted { color: var(--color-muted); }
 
 /* ----- Marketing layout overrides ----- */
 .container {
@@ -526,15 +598,6 @@ footer {
 
 .list {
   line-height: 1.6;
-}
-
-.cta-button {
-  background: #111;
-  color: #fff;
-  padding: 0.65rem 0.95rem;
-  border-radius: 8px;
-  display: inline-block;
-  text-decoration: none;
 }
 
 .text-link {
@@ -567,53 +630,22 @@ footer {
 }
 
 /* === Hero background video (Cloudflare Stream) === */
-.hero {
-  position: relative;
-  min-height: 100vh;         /* full-screen per user request */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-}
+.hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; align-items: center; }
 
-/* Video container behaves like a background layer */
-.hero-video {
-  position: absolute;
-  inset: 0;
-  z-index: 0;                /* below overlay & text */
-  overflow: hidden;
-  background: #000;          /* avoids white flashes */
-}
+.hero-video { position: absolute; inset: 0; z-index: 0; overflow: hidden; background:#000; }
 
-/* Make the iframe cover the viewport (16:9) */
 .hero-video iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 56.25vw;           /* 16:9 of viewport width */
-  min-width: 177.78vh;       /* maintain cover on tall screens */
-  min-height: 100vh;
-  transform: translate(-50%, -50%);
-  border: 0;
-  pointer-events: none;      /* background only */
-  opacity: 1;
+  position: absolute; top:50%; left:50%;
+  width:100vw; height:56.25vw; min-width:177.78vh; min-height:100vh;
+  transform: translate(-50%,-50%); border:0; pointer-events:none; opacity:1;
 }
 
-/* Subtle overlay for text legibility (keep as-is for now) */
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,.30), rgba(0,0,0,.20));
-  z-index: 1;
+.hero-overlay { position:absolute; inset:0; z-index:1;
+  /* keep as-is darkness but hue-nudge toward primary green */
+  background: linear-gradient(180deg, rgba(0,70,67,.40), rgba(0,70,67,.25));
 }
 
-/* Foreground hero content */
-.hero .hero-content {
-  position: relative;
-  z-index: 2;
-}
+.hero .hero-content { position:relative; z-index:2; color: var(--text-on-dark); text-align:center; }
 
 @media (max-width: 800px) {
   .hero { min-height: 100vh; }
